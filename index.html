@@ -3,31 +3,165 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111413">
 <title>Сайты проектов xreamm1</title>
 <style>
-:root { color-scheme: dark; font: 16px/1.4 system-ui, sans-serif; color: #f0f0f0; background: #000; }
-body { max-width: 740px; margin: 0 auto; padding: 24px 16px; }
-h1 { margin: 0 0 12px; font-size: 1.4rem; }
-ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 205px), 1fr)); gap: 5px; margin: 0; padding: 0; list-style: none; }
-a { display: block; height: 100%; box-sizing: border-box; padding: 6px 9px; border: 1px solid #333; border-radius: 5px; background: #101010; color: inherit; text-decoration: none; overflow-wrap: anywhere; }
-a:hover { background: #1c1c1c; }
-a:hover strong { text-decoration: underline; }
-a:focus-visible { outline: 2px solid #fff; outline-offset: 1px; }
-strong { display: block; font-weight: 600; }
-small { display: block; color: #bdbdbd; }
+:root {
+  color-scheme: dark;
+  font: 100%/1.5 system-ui, sans-serif;
+  color: #f4f5ee;
+  background: #111413;
+  --muted: #afb9b2;
+  --line: #373f3a;
+  --accent: #d7ff77;
+  --mono: ui-monospace, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { width: min(70rem, calc(100% - 2rem)); margin: auto; padding: 1.5rem 0 3rem; }
+.masthead, .section-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem 1rem;
+}
+.masthead {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font: .8rem/1.5 var(--mono);
+}
+.brand { display: inline-flex; align-items: center; gap: .65rem; color: var(--accent); }
+.brand::before { content: ""; width: .65rem; height: .65rem; background: currentColor; }
+.hero {
+  margin: 1.25rem 0 2.5rem;
+  padding: clamp(1.25rem, 5vw, 4rem);
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(90deg, #1a221d 25%, transparent),
+    radial-gradient(#698047 1px, transparent 1px) top right / 1rem 1rem,
+    #1a221d;
+}
+.eyebrow { margin: 0 0 .8rem; color: var(--accent); font: .8rem/1.5 var(--mono); }
+h1 {
+  max-width: 10ch;
+  margin: 0;
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  line-height: .98;
+  letter-spacing: -.055em;
+}
+.intro {
+  width: fit-content;
+  max-width: 32rem;
+  margin: 1.25rem 0 0;
+  background: #1a221d;
+  color: var(--muted);
+}
+.section-title { margin-bottom: .9rem; }
+h2 { margin: 0; font-size: 1.25rem; }
+.section-title span { color: var(--muted); font: .8rem/1.5 var(--mono); }
+ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: .75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 10rem;
+  padding: 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: .9rem;
+  background: #1a201d;
+  color: inherit;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.card:hover, .card:focus-visible { border-color: var(--accent); background: #242e24; }
+.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.card:hover strong, .card:focus-visible strong { text-decoration: underline; }
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: var(--accent);
+  font: .85rem/1.5 var(--mono);
+}
+.arrow { font-size: 1.2rem; line-height: 1; }
+strong { font: 700 1.03rem/1.3 var(--mono); }
+.description { margin-top: .4rem; color: var(--muted); font-size: .9rem; }
 </style>
 </head>
 <body>
 <main>
-<h1>Сайты проектов</h1>
-<ul>
-<li><a href="https://xreamm1.github.io/ascii/"><strong>ascii</strong><small>Браузерная игра с ASCII-графикой.</small></a></li>
-<li><a href="https://xreamm1.github.io/babel/"><strong>babel</strong><small>Галерея возможных изображений.</small></a></li>
-<li><a href="https://xreamm1.github.io/browsing-of-isaac-alt-site/"><strong>browsing-of-isaac-alt-site</strong><small>Альтернативный сайт браузерного Isaac.</small></a></li>
-<li><a href="https://xreamm1.github.io/chess/"><strong>chess</strong><small>Шахматы и русские шашки.</small></a></li>
-<li><a href="https://xreamm1.github.io/draw/"><strong>draw</strong><small>Общая доска для рисования.</small></a></li>
-<li><a href="https://xreamm1.github.io/the-browsing-of-isaac/"><strong>the-browsing-of-isaac</strong><small>The Binding of Isaac: Repentance+ в браузере.</small></a></li>
-</ul>
+  <header class="masthead">
+    <span class="brand">xreamm1 / log</span>
+    <span>Каталог веб-проектов</span>
+  </header>
+
+  <div class="hero">
+    <p class="eyebrow">КОЛЛЕКЦИЯ XREAMM1</p>
+    <h1>Сайты проектов</h1>
+    <p class="intro">Браузерные игры, галерея изображений и общая доска для рисования.</p>
+  </div>
+
+  <section aria-labelledby="projects">
+    <div class="section-title">
+      <h2 id="projects">Все проекты</h2>
+      <span>6 проектов</span>
+    </div>
+    <ul>
+      <li>
+        <a class="card" href="https://xreamm1.github.io/ascii/">
+          <span class="card-top" aria-hidden="true">01 <span class="arrow">↗</span></span>
+          <strong>ascii</strong>
+          <span class="description">Браузерная игра с ASCII-графикой.</span>
+        </a>
+      </li>
+      <li>
+        <a class="card" href="https://xreamm1.github.io/babel/">
+          <span class="card-top" aria-hidden="true">02 <span class="arrow">↗</span></span>
+          <strong>babel</strong>
+          <span class="description">Галерея возможных изображений.</span>
+        </a>
+      </li>
+      <li>
+        <a class="card" href="https://xreamm1.github.io/browsing-of-isaac-alt-site/">
+          <span class="card-top" aria-hidden="true">03 <span class="arrow">↗</span></span>
+          <strong>browsing-of-isaac-alt-site</strong>
+          <span class="description">Альтернативный сайт браузерного Isaac.</span>
+        </a>
+      </li>
+      <li>
+        <a class="card" href="https://xreamm1.github.io/chess/">
+          <span class="card-top" aria-hidden="true">04 <span class="arrow">↗</span></span>
+          <strong>chess</strong>
+          <span class="description">Шахматы и русские шашки.</span>
+        </a>
+      </li>
+      <li>
+        <a class="card" href="https://xreamm1.github.io/draw/">
+          <span class="card-top" aria-hidden="true">05 <span class="arrow">↗</span></span>
+          <strong>draw</strong>
+          <span class="description">Общая доска для рисования.</span>
+        </a>
+      </li>
+      <li>
+        <a class="card" href="https://xreamm1.github.io/the-browsing-of-isaac/">
+          <span class="card-top" aria-hidden="true">06 <span class="arrow">↗</span></span>
+          <strong>the-browsing-of-isaac</strong>
+          <span class="description">The Binding of Isaac: Repentance+ в браузере.</span>
+        </a>
+      </li>
+    </ul>
+  </section>
 </main>
 </body>
 </html>
